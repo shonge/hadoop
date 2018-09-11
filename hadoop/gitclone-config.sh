@@ -2,7 +2,7 @@
 if [ "${GIT_URL}" -a "${SUB_FOLDER}" ];then
     echo "Git ENVs are exists."
 else
-    echo "You need define ENV GIT_URL and SUB_FOLDER"
+    echo "You need to define ENVs GIT_URL and SUB_FOLDER"
     exit 1
 fi
 
