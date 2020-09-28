@@ -60,18 +60,18 @@ elif [ "$HADOOP_ROLE" == "RESOURCEMANAGER" ] ; then
     cp /supervisord/$HADOOP_ROLE /etc/supervisord.conf
     exec supervisord -n -c /etc/supervisord.conf
 elif [ "$HADOOP_ROLE" == "NODEMANAGER" ] ; then
-    cp /etc/hosts /etc/hosts.old
-    sed -e "s/.*`hostname`/`curl -s http://rancher-metadata/latest/self/container/ips/0` `hostname`/g" /etc/hosts.old > /etc/hosts
+    #cp /etc/hosts /etc/hosts.old
+    #sed -e "s/.*`hostname`/`curl -s http://rancher-metadata/latest/self/container/ips/0` `hostname`/g" /etc/hosts.old > /etc/hosts
     cp /supervisord/$HADOOP_ROLE /etc/supervisord.conf
     exec supervisord -n -c /etc/supervisord.conf
 elif [ "$HADOOP_ROLE" == "HMASTER" ]; then
-    cp /etc/hosts /etc/hosts.old
-    sed -e "s/.*`hostname`/`curl -s http://rancher-metadata/latest/self/container/ips/0` `hostname`/g" /etc/hosts.old > /etc/hosts
+    #cp /etc/hosts /etc/hosts.old
+    #sed -e "s/.*`hostname`/`curl -s http://rancher-metadata/latest/self/container/ips/0` `hostname`/g" /etc/hosts.old > /etc/hosts
     cp /supervisord/$HADOOP_ROLE /etc/supervisord.conf
     exec supervisord -n -c /etc/supervisord.conf
 elif [ "$HADOOP_ROLE" == "HREGIONSERVER" ]; then
-    cp /etc/hosts /etc/hosts.old
-    sed -e "s/.*`hostname`/`curl -s http://rancher-metadata/latest/self/container/ips/0` `hostname`/g" /etc/hosts.old > /etc/hosts
+    #cp /etc/hosts /etc/hosts.old
+    #sed -e "s/.*`hostname`/`curl -s http://rancher-metadata/latest/self/container/ips/0` `hostname`/g" /etc/hosts.old > /etc/hosts
     # /tool/agent -s HMaster1:34616;HMaster2:34616 -mode client -conf /tool/agent-conf.yml
     cp /supervisord/$HADOOP_ROLE /etc/supervisord.conf
     exec supervisord -n -c /etc/supervisord.conf
